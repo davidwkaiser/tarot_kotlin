@@ -34,6 +34,7 @@ dependencies {
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("org.junit.jupiter:junit-jupiter-engine:5.3.1")
 	testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.3.1")
+	testImplementation("com.nhaarman:mockito-kotlin:0.9.0")
 }
 
 tasks.withType<KotlinCompile> {
