@@ -8,8 +8,6 @@ import org.junit.Test
 
 internal class DeckServiceTest{
 
-//    val deck1 = Deck(WaiteSmithDeck.cards)
-
     val deck1  = mock<Deck>()
 
     val subject = DeckService(deck1)
