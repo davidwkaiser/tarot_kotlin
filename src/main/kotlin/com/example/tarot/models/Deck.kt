@@ -1,4 +1,4 @@
-package com.example.tarot
+package com.example.tarot.models
 
 
 class Deck(val cards: List<Card>) {

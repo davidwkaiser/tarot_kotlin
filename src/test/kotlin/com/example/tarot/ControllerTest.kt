@@ -1,5 +1,7 @@
 package com.example.tarot
 
+import com.example.tarot.models.Card
+import com.example.tarot.models.Response
 import com.nhaarman.mockito_kotlin.mock
 import com.nhaarman.mockito_kotlin.verify
 import com.nhaarman.mockito_kotlin.whenever
@@ -10,13 +12,15 @@ internal class ControllerTest {
 
     val mockService = mock<DeckService>()
 
-    val testCard = Card("name", "image", listOf("word") )
+    val testCard = Card("name", "image", listOf("word1", "word2"))
+
+    val response1 = Response(testCard, true)
 
     val subject = Controller(mockService)
 
     @Before
     fun setUp(){
-        whenever(mockService.getCard()).thenReturn(testCard)
+        whenever(mockService.getCard()).thenReturn(response1)
     }
 
     @Test
@@ -28,15 +32,23 @@ internal class ControllerTest {
     }
 
     @Test
-    fun `showCard returns nice text`(){
+    fun `showCard returns nice standard text`(){
 
         val expectedOutput = "Your card is name. \n" +
-                "Your keywords are [word]"
+                "Your keywords are [word1, word2]"
 
         subject.showCard().let{
             assertThat(it).isEqualTo(expectedOutput)
         }
     }
+
+    @Test
+    fun `showCard returns nice inverted text`(){
+
+
+    }
+
+
 
 
 

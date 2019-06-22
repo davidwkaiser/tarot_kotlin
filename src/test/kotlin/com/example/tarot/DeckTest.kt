@@ -1,5 +1,7 @@
 package com.example.tarot
 
+import com.example.tarot.models.Card
+import com.example.tarot.models.Deck
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
