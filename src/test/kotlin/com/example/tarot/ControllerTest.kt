@@ -24,8 +24,21 @@ internal class ControllerTest {
 
         subject.showCard().let{
             verify(mockService).getCard()
-            assertThat(it.name).isEqualTo("name")
         }
     }
+
+    @Test
+    fun `showCard returns nice text`(){
+
+        val expectedOutput = "Your card is name. \n" +
+                "Your keywords are [word]"
+
+        subject.showCard().let{
+            assertThat(it).isEqualTo(expectedOutput)
+        }
+    }
+
+
+
 }
 

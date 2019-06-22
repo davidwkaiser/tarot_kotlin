@@ -8,8 +8,10 @@ class Controller (val deckService: DeckService ) {
 
 
     @GetMapping("/", produces = ["application/json"])
-    fun showCard(): Card {
-        return deckService.getCard()
+    fun showCard(): String {
+        return deckService.getCard().let {
+            "Your card is ${it.name}. \n" +
+                    "Your keywords are ${it.keywords}"
+        }
     }
-
 }
