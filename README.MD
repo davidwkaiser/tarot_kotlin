@@ -19,7 +19,7 @@ Why a Tarot app?
 Every day, I draw a Tarot card for inspiration and guidance. 
 
 Features:<br/>
--Add all 78 cards<br/>
+~~-Add all 78 cards<br/>~~
 -Allow for inverted cards <br/>
 -Add JPGs <br/>
 -Deploy<br/>
