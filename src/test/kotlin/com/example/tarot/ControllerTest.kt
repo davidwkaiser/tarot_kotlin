@@ -54,13 +54,6 @@ internal class ControllerTest {
         subject.showCard().let{
             assertThat(it).isEqualTo(expectedOutput)
         }
-
-
     }
-
-
-
-
-
 }
 

@@ -45,6 +45,5 @@ internal class DeckServiceTest{
         subject.isInverted().let{
             assertThat(it == true || it == false).isTrue()
         }
-
     }
 }

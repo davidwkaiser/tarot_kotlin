@@ -14,6 +14,8 @@ I haven't worked on it in over a year, though.
 
 Recently, I found myself frustrated that I have been doing more DevOps work than actual coding at work lately, and I wanted to improve my Kotlin, so I decided to pick this project up again, and this time to start from scratch, in Kotlin, and use Test Driven Design principles. 
 
+New repository: [https://github.com/davidwkaiser/tarot_kotlin]
+
 Why a Tarot app? 
 
 Every day, I draw a Tarot card for inspiration and guidance. 
