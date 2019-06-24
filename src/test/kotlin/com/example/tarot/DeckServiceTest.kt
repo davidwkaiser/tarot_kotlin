@@ -32,11 +32,19 @@ internal class DeckServiceTest{
             verify(deck1).pickCard()
     }
 
-
     @Test
     fun `getCard returns a Response object`(){
         subject.getCard().let{
             assertThat(it).isInstanceOf(Response::class.java)
         }
+    }
+
+    @Test
+    fun `isInverted returns a boolean value`(){
+
+        subject.isInverted().let{
+            assertThat(it == true || it == false).isTrue()
+        }
+
     }
 }

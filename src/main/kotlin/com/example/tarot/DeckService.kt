@@ -11,9 +11,12 @@ class DeckService(private val deck: Deck) {
         return deck.pickCard().let{ it ->
             Response(
                     card = it,
-                    orientation = true
+                    isInverted = isInverted()
             )
         }
+    }
 
+    fun isInverted(): Boolean {
+        return listOf(true, false).shuffled().first()
     }
 }

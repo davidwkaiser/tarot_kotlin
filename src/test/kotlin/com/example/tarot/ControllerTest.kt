@@ -14,7 +14,8 @@ internal class ControllerTest {
 
     val testCard = Card("name", "image", listOf("word1", "word2"))
 
-    val response1 = Response(testCard, true)
+    val response1 = Response(testCard, false)
+    val response2 = Response(testCard, true)
 
     val subject = Controller(mockService)
 
@@ -44,6 +45,15 @@ internal class ControllerTest {
 
     @Test
     fun `showCard returns nice inverted text`(){
+
+        whenever(mockService.getCard()).thenReturn(response2)
+
+        val expectedOutput = "Your card is name, inverted. \n" +
+                "Your keywords are [word1, word2]"
+
+        subject.showCard().let{
+            assertThat(it).isEqualTo(expectedOutput)
+        }
 
 
     }
