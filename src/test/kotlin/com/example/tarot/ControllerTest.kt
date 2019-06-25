@@ -8,6 +8,8 @@ import com.nhaarman.mockito_kotlin.whenever
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.Before
 import org.junit.Test
+import org.springframework.ui.Model
+
 internal class ControllerTest {
 
     val mockService = mock<DeckService>()
@@ -19,6 +21,8 @@ internal class ControllerTest {
 
     val subject = Controller(mockService)
 
+    val model = mock<Model>()
+
     @Before
     fun setUp(){
         whenever(mockService.getCard()).thenReturn(response1)
@@ -27,32 +31,29 @@ internal class ControllerTest {
     @Test
     fun `showCard calls the deckService`(){
 
-        subject.showCard().let{
+        subject.showCard(model).let{
             verify(mockService).getCard()
         }
     }
 
+
     @Test
-    fun `showCard returns nice standard text`(){
+    fun `showCard adds model and returns index`(){
 
-        val expectedOutput = "Your card is name. \n" +
-                "Your keywords are [word1, word2]"
-
-        subject.showCard().let{
-            assertThat(it).isEqualTo(expectedOutput)
+        subject.showCard(model).let{
+            assertThat(it).isEqualTo("index")
+            verify(model).addAttribute("response", response1)
         }
     }
 
     @Test
-    fun `showCard returns nice inverted text`(){
+    fun `showCard adds inverted model and returns index`(){
 
         whenever(mockService.getCard()).thenReturn(response2)
 
-        val expectedOutput = "Your card is name, inverted. \n" +
-                "Your keywords are [word1, word2]"
-
-        subject.showCard().let{
-            assertThat(it).isEqualTo(expectedOutput)
+        subject.showCard(model).let{
+            assertThat(it).isEqualTo("index")
+            verify(model).addAttribute("response", response2)
         }
     }
 }
